@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Exam Planner</title>
+  <link rel="stylesheet" href="styses.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1><i class="fas fa-graduation-cap"></i> Tech Exam Planner</h1>
+      <p>Your personalized certification preparation tracker</p>
+    </header>
+
+    <div class="main-content">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h3>Subjects</h3>
+          <button id="add-subject" class="icon-btn" title="Add New Subject">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <ul class="subject-list">
+          <li class="active" data-subject="dsa">
+            <i class="fas fa-project-diagram"></i>
+            <span>Data Structures & Algorithms</span>
+          </li>
+          <li data-subject="web">
+            <i class="fas fa-code"></i>
+            <span>Internet Programming</span>
+          </li>
+          <li data-subject="db">
+            <i class="fas fa-database"></i>
+            <span>Database Systems</span>
+          </li>
+          <li data-subject="crypto">
+            <i class="fas fa-lock"></i>
+            <span>Cryptography</span>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="content-area">
+        <div class="subject-header">
+          <h2 id="current-subject">Data Structures & Algorithms</h2>
+          <div class="time-tracker">
+            <span id="total-time">0h 0m</span>
+            <span>studied</span>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="modules">Modules</button>
+          <button class="tab-btn" data-tab="resources">Resources</button>
+          <button class="tab-btn" data-tab="progress">Progress</button>
+        </div>
+
+        <div class="tab-content active" data-tab="modules">
+          <div class="module-card">
+            <div class="module-header">
+              <h3>Arrays & Linked Lists</h3>
+              <div class="module-time">
+                <span class="time-spent">0h 0m</span>
+                <button class="timer-btn" data-module="arrays">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="module-actions">
+              <button class="action-btn complete-btn">
+                <i class="far fa-check-circle"></i> Mark Complete
+              </button>
+              <button class="action-btn notes-btn">
+                <i class="far fa-edit"></i> Add Notes
+              </button>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <div class="tab-content" data-tab="resources">
+          <div class="resource-card">
+            <h3>Recommended Resources</h3>
+            <ul class="resource-list">
+              <li>
+                <a href="#" target="_blank">
+                  <i class="fas fa-book"></i> DSA Complete Guide (Book)
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i class="fas fa-video"></i> Algorithms Course (YouTube)
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i class="fas fa-file-pdf"></i> Practice Problems (PDF)
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tab-content" data-tab="progress">
+          <div class="progress-chart">
+            <canvas id="progressChart"></canvas>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h4>Total Study Time</h4>
+              <p class="stat-value">0h 0m</p>
+            </div>
+            <div class="stat-card">
+              <h4>Modules Completed</h4>
+              <p class="stat-value">0/12</p>
+            </div>
+            <div class="stat-card">
+              <h4>Days Until Exam</h4>
+              <p class="stat-value">30</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    
+    <div class="modal" id="timer-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Study Timer</h3>
+          <button class="close-btn">&times;</button>
+        </div>
+        <div class="timer-display">
+          <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <div class="timer-controls">
+          <button id="start-timer" class="timer-btn">
+            <i class="fas fa-play"></i> Start
+          </button>
+          <button id="pause-timer" class="timer-btn" disabled>
+            <i class="fas fa-pause"></i> Pause
+          </button>
+          <button id="stop-timer" class="timer-btn" disabled>
+            <i class="fas fa-stop"></i> Stop
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
